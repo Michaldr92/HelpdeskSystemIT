@@ -224,7 +224,7 @@ public class Program {
 				if(isAdmin == 1){
 					informationDialog("admin");
 					frame.dispose();
-					new UserGUI(getId(), login);
+					new AdminGUI(getId(), login);
 				}
 				// Logged as user (if isAdmin != 1)
 				else{
