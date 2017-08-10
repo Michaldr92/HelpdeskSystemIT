@@ -701,7 +701,13 @@ public class UserGUI {
 		connectToDb = ConnectDB.helpDeskDB();
 		
 		try {
-			String query = "select * from devices where id = '"+id+"'";
+			String query = "SELECT u.id, u.name, u.surname, d.name, d.sn, d.os, d.cpu, d.ram
+					FROM user_devices AS ud
+					INNER JOIN users AS u
+					ON ud.user_id = u.id
+					INNER JOIN devices AS d
+					ON ud.device_id = d.id
+					WHERE u.id ='"+id+"' ";
 			PreparedStatement pst = connectToDb.prepareStatement(query);
 			ResultSet rs = pst.executeQuery();
 			
