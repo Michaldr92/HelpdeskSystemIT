@@ -712,12 +712,7 @@ public class UserGUI {
 			ResultSet rs = pst.executeQuery();
 			
 			while(rs.next()){
-				lblName.setText(rs.getString("name"));
-				lblSurname.setText(rs.getString("surname"));
-				lblEmail.setText(rs.getString("email"));
-				lblDepartment.setText(rs.getString("department"));
-				lblPosition.setText(rs.getString("position"));
-				lblOffice.setText(rs.getString("office"));
+			// Display all user's devices
 			}
 			rs.close();
 			pst.close();
