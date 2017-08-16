@@ -203,6 +203,7 @@ public class Program {
 				// temp values
 				int isAdmin = 0;
 				String isLogin = "";
+				int myId = 0;
 				
 				// Get from database information about login is Admin?
 				String queryIsAdmin = "select id, login, isAdmin from users where login = ?";
@@ -215,22 +216,20 @@ public class Program {
 					isLogin = rs.getString("login");
 					id = rs.getInt("id");
 					setId(id);
-					System.out.println(id);
-					System.out.println(isAdmin);
-					System.out.println(isLogin);
-					System.out.println("GetID(): " + getId());
 				}
+				
+				myId = getId();
 				// Logged as admin (if isAdmin == 1)
 				if(isAdmin == 1){
 					informationDialog("admin");
 					frame.dispose();
-					new AdminGUI(getId(), login);
+					new AdminGUI(myId, login);
 				}
 				// Logged as user (if isAdmin != 1)
 				else{
 					informationDialog("user");
 					frame.dispose();
-					new UserGUI(getId(), login);
+					new UserGUI(myId, login);
 				}				
 			}
 			// Fields are empty -> throw dialog message
